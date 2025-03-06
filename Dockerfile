@@ -4,14 +4,15 @@ WORKDIR /app
 
 COPY package.json /app/
 
+RUN npm install -g pnpm
 RUN npm install
 
 COPY . /app
 
-RUN npm run build
+RUN pnpm build
 
 ENV  NODE_ENVIRONEMENT=production
 
 EXPOSE 4173
 
-CMD ["npm", "run", "--host", "0.0.0.0", "preview"]
+CMD ["pnpm", "preview", "--host", "0.0.0.0"]
