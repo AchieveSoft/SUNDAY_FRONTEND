@@ -1,14 +1,14 @@
-FROM oven/bun:latest
+FROM node:slim
 
 WORKDIR /app
 
 COPY package.json /app/
 
-RUN bun install
+RUN npm install
 
 COPY . /app
 
-RUN bun run build
+RUN npm run build
 
 ENV  NODE_ENVIRONEMENT=production
 
