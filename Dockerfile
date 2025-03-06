@@ -14,4 +14,4 @@ ENV  NODE_ENVIRONEMENT=production
 
 EXPOSE 4173
 
-CMD ["npm", "run", "preview", "--host", "0.0.0.0"]
+CMD ["npm", "run", "--host", "0.0.0.0", "preview"]
