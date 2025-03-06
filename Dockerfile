@@ -2,9 +2,12 @@ FROM oven/bun:latest
 
 WORKDIR /app
 
+COPY package.json /app/
+
+RUN bun install
+
 COPY . /app
 
-RUN bun i
 RUN bun run build
 
 ENV  NODE_ENVIRONEMENT=production
