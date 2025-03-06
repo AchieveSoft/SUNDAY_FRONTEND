@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Card, Divider } from 'primevue'
 import { useRouter } from 'vue-router'
-import type { Pipeline, State } from '../types/pipeline'
+import type { Pipeline } from '../types/pipeline'
+import type { State } from '../types/state'
 
 const router = useRouter()
 const props = defineProps<Pipeline>()

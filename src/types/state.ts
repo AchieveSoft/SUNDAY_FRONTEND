@@ -1,0 +1,1 @@
+export type State = 'idle' | 'pass' | 'running' | 'pause' | 'fail' 

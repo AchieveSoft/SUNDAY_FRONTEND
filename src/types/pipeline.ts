@@ -1,10 +1,4 @@
-export type State = 'pass' | 'running' | 'pause' | 'fail' 
-
-export interface Stage {
-    stageCode?: string,
-    stageName?: string,
-    state?: State
-}
+import type { Stage } from './stage'
 
 export interface Pipeline {
     pipelineCode?: string,

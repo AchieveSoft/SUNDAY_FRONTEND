@@ -14,12 +14,7 @@ const pinia = createPinia()
 
 app.use(PrimeVue, {
     theme: {
-        preset: Material,
-        options: {
-            toolbar: {
-              background: '#e74c3c' // Example color
-            }
-          }
+        preset: Material
     }
 })
 

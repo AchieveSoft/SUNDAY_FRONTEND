@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppBar from '../components/AppBar.vue'
 import PipelineCard from '../components/PipelineCard.vue';
-import type { Stage } from '../types/pipeline';
+import type { Stage } from '../types/stage';
 
 const mockStageList: Stage[] = [
     {
