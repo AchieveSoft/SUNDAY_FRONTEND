@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git pull
+docker build -t sunday_frontend .
+docker run -d -p 3000:4173 sunday_frontend
