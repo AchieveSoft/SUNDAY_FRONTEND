@@ -1,7 +1,9 @@
 import type { State } from './state'
+import type { Task } from './task'
 
 export interface Stage {
-    stageCode?: string,
-    stageName?: string,
+    stageCode?: string
+    name?: string
     state?: State
+    tasks?: Task[]
 }

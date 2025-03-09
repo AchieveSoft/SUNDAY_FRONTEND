@@ -1,13 +1,32 @@
 <script setup lang="ts">
 import { Card, IftaLabel, InputText, Button } from 'primevue'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/auth-store'
+import Swal from 'sweetalert2'
 
 const router = useRouter()
+const authStore = useAuthStore()
+let email: string = ''
+let password: string = ''
+const { loginResult } = authStore
 
 function gotoSummaryPage() {
   router.push('/summary')
 }
 
+async function login() {
+  await authStore.login(email, password)
+
+  if (loginResult?.success)
+    gotoSummaryPage()
+  else
+    Swal.fire({
+      icon:'warning',
+      title: 'Login Failed',
+      text: loginResult?.message,
+      heightAuto: false
+    })
+}
 </script>
 
 <template>
@@ -24,14 +43,14 @@ function gotoSummaryPage() {
       <template #content>
         <div class="d-flex flex-column justify-content-center align-items-center">
           <IftaLabel class="input">
-            <InputText id="email" type="text" variant="filled" class="input" />
+            <InputText id="email" type="text" variant="filled" class="input" v-model="email" />
             <label for="email">Email</label>
           </IftaLabel><br />
           <IftaLabel class="input">
-            <InputText id="password" type="password" variant="filled" class="input" />
+            <InputText id="password" type="password" variant="filled" class="input" v-model="password" />
             <label for="password">Password</label>
           </IftaLabel><br />
-          <Button severity="danger" class="btn-login" @click="gotoSummaryPage">Login</Button>
+          <Button severity="danger" class="btn-login" @click="login">Login</Button>
         </div>
       </template>
     </Card>

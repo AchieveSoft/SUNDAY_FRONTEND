@@ -1,8 +1,8 @@
 import type { Stage } from './stage'
 
 export interface Pipeline {
-    pipelineCode?: string,
-    pipelineName?: string,
-    latestInstance?: string,
+    pipelineCode?: string
+    name?: string
+    latestInstance?: string
     stages?: Stage[]
 }

@@ -1,1 +1,1 @@
-export type State = 'idle' | 'pass' | 'running' | 'pause' | 'fail' 
+export type State = 'Idle' | 'Pass' | 'Running' | 'Pause' | 'Fail' 

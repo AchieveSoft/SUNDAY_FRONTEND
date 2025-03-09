@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { Toolbar, IconField, InputIcon, InputText } from 'primevue'
+import { usePipelineStore } from '../stores/pipeline-store'
 
 const props = defineProps(['pipelineName'])
+const pipelineStore = usePipelineStore()
+let searchKeyword: string = ''
+
+function search() {
+    pipelineStore.filterPipelines(searchKeyword)
+}
 
 </script>
 
@@ -14,7 +21,7 @@ const props = defineProps(['pipelineName'])
             <template v-if="!props.pipelineName || props.pipelineName === ''">
                 <IconField>
                     <InputIcon><i class="pi pi-search"></i></InputIcon>
-                    <InputText type="text" placeholder="Search pipelines" />
+                    <InputText type="text" placeholder="Search pipelines" v-model="searchKeyword" @input="search" />
                 </IconField>
             </template>
             <template v-if="props.pipelineName && props.pipelineName != ''">

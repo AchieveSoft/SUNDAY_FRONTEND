@@ -8,16 +8,16 @@ const router = useRouter()
 const props = defineProps<Pipeline>()
 
 function getColorByState(state: State): string {
-    if (state === 'pass') return '#1abc9c'
-    else if (['running', 'pause'].includes(state)) return '#f1c40f'
-    else if (state === 'fail') return '#e74c3c'
+    if (state === 'Pass') return '#1abc9c'
+    else if (['Running', 'Pause'].includes(state)) return '#f1c40f'
+    else if (state === 'Fail') return '#e74c3c'
     else return 'black'
 }
 
 function getIconByState(state: State): string {
-    if (state === 'pass') return 'pi pi-verified'
-    else if (['running', 'pause'].includes(state)) return 'pi pi-pause'
-    else if (state === 'fail') return 'pi pi-times'
+    if (state === 'Pass') return 'pi pi-verified'
+    else if (['Running', 'Pause'].includes(state)) return 'pi pi-pause'
+    else if (state === 'Fail') return 'pi pi-times'
     else return 'black'
 }
 
@@ -29,7 +29,7 @@ function gotoPipelineDetailPage(): void {
 
 <template>
     <Card>
-        <template #title>{{ props.pipelineName }}</template>
+        <template #title>{{ props.name }}</template>
         <template #content>
             <div class="w-100 d-flex flex-row justify-content-end mt-3">
                 <i class="pi pi-eye me-3 cursor-pointer" @click="gotoPipelineDetailPage"></i>
