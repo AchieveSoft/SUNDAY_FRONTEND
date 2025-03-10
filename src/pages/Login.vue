@@ -3,9 +3,11 @@ import { Card, IftaLabel, InputText, Button } from 'primevue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth-store'
 import Swal from 'sweetalert2'
+import { useLoaderStore } from '../stores/loader-store'
 
 const router = useRouter()
 const authStore = useAuthStore()
+const loaderStore = useLoaderStore()
 let email: string = ''
 let password: string = ''
 const { loginResult } = authStore
@@ -15,7 +17,9 @@ function gotoSummaryPage() {
 }
 
 async function login() {
+  loaderStore.show()
   await authStore.login(email, password)
+  loaderStore.hide()
 
   if (loginResult?.success)
     gotoSummaryPage()
