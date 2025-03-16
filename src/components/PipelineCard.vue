@@ -9,6 +9,7 @@ const props = defineProps<Pipeline>()
 
 function getColorByState(state: State): string {
     if (state === 'Pass') return '#1abc9c'
+    else if (state === 'Idle') return '#3498db'
     else if (['Running', 'Pause'].includes(state)) return '#f1c40f'
     else if (state === 'Fail') return '#e74c3c'
     else return 'black'
@@ -16,6 +17,7 @@ function getColorByState(state: State): string {
 
 function getIconByState(state: State): string {
     if (state === 'Pass') return 'pi pi-verified'
+    else if (state === 'Idle') return 'pi pi-verified'
     else if (['Running', 'Pause'].includes(state)) return 'pi pi-pause'
     else if (state === 'Fail') return 'pi pi-times'
     else return 'black'
