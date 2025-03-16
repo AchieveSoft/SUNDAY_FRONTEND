@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { Card, IftaLabel, InputText, Button } from 'primevue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth-store'
